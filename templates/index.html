@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+
+
+<head>
+    <title>SF Crime Scene</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+
+<body>
+
+    <header>
+        <div class="container">
+            <h2>SF Crime Prediction</h2>
+        </div>
+    </header>
+    <div class="container">
+        <img src="https://media.giphy.com/media/l2Sq9AKZKhC1br9tu/giphy.gif" />
+<!-- # theft(1), vandalism(2), vehicle-related-crime(3), assault(0)
+# Mon(1), Tue(5), Wed(6), Thu(4), Fri(0), Sat(2), Sun(3)
+# southern(8), northern(4), central(1), mission(3), bayview(0), ingleside(2),
+# taraval(9), richmond(7), tenderloin(10), park(6), out of sf(5)
+'incident_day_of_week', 'incident_month', 'incident_time', 'police_district', 'longitude', 'latitude' -->
+        <form action="/predict" method="POST" class="form">
+            <div class="fieldset">
+                <label>Enter Weekday</label>
+                <select class="weekday" name="weekday">
+                    <option value="1">Monday</option>
+                    <option value="5">Tuesday</option>
+                    <option value="6">Wednesday</option>
+                    <option value="4">Thursday</option>
+                    <option value="0">Friday</option>
+                    <option value="2">Saturday</option>
+                    <option value="3">Sunday</option>
+                </select>
+            </div>
+            <div class="fieldset">
+                <label>Enter Month</label>
+                <select class="month" name="month">
+                    <option value="1">January</option>
+                    <option value="2">February</option>
+                    <option value="3">March</option>
+                    <option value="4">April</option>
+                    <option value="5">May</option>
+                    <option value="6">June</option>
+                    <option value="7">July</option>
+                    <option value="8">August</option>
+                    <option value="9">September</option>
+                    <option value="10">October</option>
+                    <option value="11">November</option>
+                    <option value="12">December</option>
+                </select>
+            </div>
+            <div class='fieldset'>
+                <label>Enter Time of Day</label>
+                <select class="time" name="time">
+                    <option value="0">Midnight</option>
+                    <option value="1">1AM</option>
+                    <option value="2">2AM</option>
+                    <option value="3">3AM</option>
+                    <option value="4">4AM</option>
+                    <option value="5">5AM</option>
+                    <option value="6">6AM</option>
+                    <option value="7">7AM</option>
+                    <option value="8">8AM</option>
+                    <option value="9">9AM</option>
+                    <option value="10">10AM</option>
+                    <option value="11">11AM</option>
+                    <option value="12">12PM</option>
+                    <option value="13">1PM</option>
+                    <option value="14">2PM</option>
+                    <option value="15">3PM</option>
+                    <option value="16">4PM</option>
+                    <option value="17">5PM</option>
+                    <option value="18">6PM</option>
+                    <option value="19">7PM</option>
+                    <option value="20">8PM</option>
+                    <option value="21">9PM</option>
+                    <option value="22">10PM</option>
+                    <option value="23">11PM</option>
+                </select>
+            </div>
+            <div class='fieldset'>
+                <label>Enter Police District</label>
+                <select class="pd" name="pd">
+                    <option value="0">Bayview</option>
+                    <option value="1">Central</option>
+                    <option value="2">Ingleside</option>
+                    <option value="3">Mission</option>
+                    <option value="4">Northern</option>
+                    <option value="5">Out of SF</option>
+                    <option value="6">Park</option>
+                    <option value="7">Richmond</option>
+                    <option value="8">Southern</option>
+                    <option value="9">Taraval</option>
+                    <option value="10">Tenderloin</option>
+            </select>
+            
+           
+            </div>
+            <div>
+                <label>Enter address</label>
+                 <input type="text" name="address" class="address"/>
+            </div>
+            <input type="submit" class="button" value="predict">
+        </form>
+    </div>
+</body>
+
+</html>
